@@ -9,7 +9,33 @@ http://orteil.dashnet.org
 
 var VERSION=2.021;
 var BETA=1;
-
+<button onclick="if (window.webkitNotifications.checkPermission()) {
+    function askPermission() {
+        window.webkitNotifications.requestPermission();
+        var element = document.getElementById('notifier_permission');
+        element.parentNode.removeChild(element);
+    }
+    var ask = document.createElement('BUTTON');
+    var askText = document.createTextNode('Ask for notification permission');
+    ask.id = 'notifier_permission';
+    ask.style.position = 'absolute';
+    ask.style.zIndex = 99999999;
+    ask.appendChild(askText);
+    document.body.appendChild(ask);
+    ask.onclick = askPermission;
+}
+Game.shimmer.spawn = (function() {
+    var spawn = Game.shimmer.spawn;
+    return function() {
+        popup = webkitNotifications.createNotification('img/goldCookie.png', 'Cookie Clicker', 'A wild golden cookie appeared!');
+        popup.show();
+        setTimeout(function(){
+            popup.cancel();
+        }, '10000');
+        spawn();
+    };
+})();
+// source: Cookie Clicker Subreddit">get alerted when a golden cookie appears!</button>
 
 /*=====================================================================================
 MISC HELPER FUNCTIONS
