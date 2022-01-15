@@ -9,12 +9,6 @@ http://orteil.dashnet.org
 
 var VERSION=2.021;
 var BETA=1;
-<button onclick="if (window.webkitNotifications.checkPermission()) {
-    function askPermission() {
-        window.webkitNotifications.requestPermission();
-        var element = document.getElementById('notifier_permission');
-        element.parentNode.removeChild(element);
-    }
     var ask = document.createElement('BUTTON');
     var askText = document.createTextNode('Ask for notification permission');
     ask.id = 'notifier_permission';
