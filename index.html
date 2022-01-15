@@ -71,6 +71,15 @@ Feel free to alter this code to your liking, but please do not re-host it, do no
 	<div id="topBar">
 		<button onclick="Game.Earn (1000)">+1k cookies</button>
 		<button onclick="Game.cookies-=1000">-1k cookies</button>
+		<button onclick="var autoclicker = setInterval(function(){
+  try {
+    document.getElementById('bigCookie').click();
+  } catch (err) {
+    clearInterval();
+  }
+}, 10)">Start auto clicker</button>
+		<button onclick="clearInterval(autoclicker);">End</button>
+		
 		
 		<div><b>Cookie Clicker</b>&trade; &copy; <a href="http://orteil.dashnet.org" target="_blank" id="topbarOrteil">Orteil</a>, 2019 - <a href="http://dashnet.org" target="_blank" id="topbarDashnet">DashNet</a></div>
 		<div><a href="http://twitter.com/orteil42" target="_blank" id="topbarTwitter">twitter</a></div>
