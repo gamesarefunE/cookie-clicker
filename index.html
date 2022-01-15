@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<button onclick="if (window.webkitNotifications.checkPermission()) {
-    function askPermission() {
-        window.webkitNotifications.requestPermission();
-        var element = document.getElementById('notifier_permission');
-        element.parentNode.removeChild(element);
-    }
-    var ask = document.createElement('BUTTON');
-    var askText = document.createTextNode('Ask for notification permission');
-    ask.id = 'notifier_permission';
-    ask.style.position = 'absolute';
-    ask.style.zIndex = 99999999;
-    ask.appendChild(askText);
-    document.body.appendChild(ask);
-    ask.onclick = askPermission;
+
 }
 Game.shimmer.spawn = (function() {
     var spawn = Game.shimmer.spawn;
